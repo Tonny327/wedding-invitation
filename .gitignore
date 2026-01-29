@@ -4,6 +4,12 @@ target/
 !**/src/main/**/target/
 !**/src/test/**/target/
 
+### Maven ###
+*.war
+*.ear
+*.nar
+*.original
+
 ### STS ###
 .apt_generated
 .classpath
@@ -12,12 +18,18 @@ target/
 .settings
 .springBeans
 .sts4-cache
+bin/
+!**/src/main/**/bin/
+!**/src/test/**/bin/
 
 ### IntelliJ IDEA ###
 .idea
 *.iws
 *.iml
 *.ipr
+out/
+!**/src/main/**/out/
+!**/src/test/**/out/
 
 ### NetBeans ###
 /nbproject/private/
@@ -31,3 +43,77 @@ build/
 
 ### VS Code ###
 .vscode/
+*.code-workspace
+
+### Eclipse ###
+.classpath
+.project
+.settings/
+bin/
+tmp/
+*.tmp
+*.bak
+*.swp
+*~.nib
+local.properties
+.loadpath
+.recommenders
+
+### Logs ###
+*.log
+logs/
+log/
+spring-boot-*.log
+
+### Application Properties (sensitive data) ###
+application-local.properties
+application-dev.properties
+application-prod.properties
+application-*.properties
+!application.properties
+application-*.yml
+!application.yml
+*.env
+.env
+.env.local
+.env.*.local
+
+### Database ###
+*.db
+*.sqlite
+*.sqlite3
+*.h2.db
+*.mv.db
+*.trace.db
+
+### OS ###
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+### Docker ###
+docker-compose.override.yml
+
+### Temporary files ###
+*.temp
+*.cache
+*.swo
+*~
+
+### Backup files ###
+*.backup
+*.old
+
+### Package Files ###
+*.zip
+*.tar.gz
+*.rar
+
+### Compiled class files ###
+*.class
