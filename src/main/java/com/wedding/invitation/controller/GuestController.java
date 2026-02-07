@@ -10,6 +10,7 @@ import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -23,12 +24,17 @@ public class GuestController {
         this.guestRepository = guestRepository;
     }
 
+    @GetMapping
+    public ResponseEntity<List<Guest>> getAllGuests() {
+        List<Guest> guests = guestRepository.findAll();
+        return ResponseEntity.ok(guests);
+    }
+
     @PostMapping
     public ResponseEntity<Guest> createGuest(@Valid @RequestBody GuestRequest guestRequest) {
         Guest guest = new Guest();
         guest.setName(guestRequest.getName());
         guest.setAttending(guestRequest.getAttending());
-        guest.setFoodPreference(guestRequest.getFoodPreference());
         guest.setComment(guestRequest.getComment());
 
         Guest savedGuest = guestRepository.save(guest);

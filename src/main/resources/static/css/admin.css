@@ -1,0 +1,200 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: linear-gradient(135deg, #f5e6d3 0%, #e8d5b7 100%);
+    min-height: 100vh;
+    color: #5c4a2e;
+    padding: 1.5rem;
+}
+
+.admin-container {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.admin-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.admin-header h1 {
+    font-size: 1.75rem;
+    font-weight: 600;
+    color: #5c4a2e;
+}
+
+.back-link {
+    color: #8b6f47;
+    text-decoration: none;
+    font-size: 0.95rem;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    border: 1px solid #c8965a;
+    transition: background 0.2s, color 0.2s;
+}
+
+.back-link:hover {
+    background: #c8965a;
+    color: #fff;
+}
+
+.stats-section {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.stat-card {
+    background: rgba(255, 255, 255, 0.85);
+    border-radius: 12px;
+    padding: 1.25rem;
+    text-align: center;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.stat-value {
+    display: block;
+    font-size: 2rem;
+    font-weight: 700;
+    color: #5c4a2e;
+    margin-bottom: 0.25rem;
+}
+
+.stat-label {
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.stat-yes .stat-value { color: #388e3c; }
+.stat-no .stat-value { color: #c62828; }
+
+.table-section {
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    overflow: hidden;
+}
+
+.table-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+}
+
+.table-header h2 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #5c4a2e;
+}
+
+.btn-refresh {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+    color: #5c4a2e;
+    background: rgba(212, 165, 116, 0.3);
+    border: 1px solid #c8965a;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+}
+
+.btn-refresh:hover {
+    background: #c8965a;
+    color: #fff;
+}
+
+.table-wrapper {
+    overflow-x: auto;
+}
+
+.guests-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+}
+
+.guests-table th,
+.guests-table td {
+    padding: 0.75rem 1rem;
+    text-align: left;
+    border-bottom: 1px solid #e8d5b7;
+}
+
+.guests-table th {
+    background: rgba(212, 165, 116, 0.2);
+    font-weight: 600;
+    color: #5c4a2e;
+}
+
+.guests-table tbody tr:hover {
+    background: rgba(245, 230, 211, 0.5);
+}
+
+.guests-table .loading {
+    text-align: center;
+    color: #888;
+    padding: 2rem;
+}
+
+.guests-table .badge-yes {
+    display: inline-block;
+    padding: 0.25rem 0.6rem;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    background: #e8f5e9;
+    color: #2e7d32;
+}
+
+.guests-table .badge-no {
+    display: inline-block;
+    padding: 0.25rem 0.6rem;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    background: #ffebee;
+    color: #c62828;
+}
+
+.guests-table .comment-cell {
+    max-width: 280px;
+    word-break: break-word;
+}
+
+.guests-table .date-cell {
+    white-space: nowrap;
+    color: #666;
+    font-size: 0.85rem;
+}
+
+.admin-note {
+    margin-top: 1.5rem;
+    font-size: 0.8rem;
+    color: #888;
+}
+
+@media (max-width: 768px) {
+    .guests-table th,
+    .guests-table td {
+        padding: 0.5rem 0.75rem;
+        font-size: 0.85rem;
+    }
+
+    .guests-table .comment-cell {
+        max-width: 180px;
+    }
+}

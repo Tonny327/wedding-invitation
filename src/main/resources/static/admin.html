@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Гости — Админка</title>
+    <link rel="stylesheet" href="/css/admin.css">
+</head>
+<body>
+    <div class="admin-container">
+        <header class="admin-header">
+            <h1>Гости свадьбы</h1>
+            <a href="/" class="back-link">← На главную</a>
+        </header>
+
+        <section class="stats-section">
+            <div class="stat-card stat-total">
+                <span class="stat-value" id="stat-total">0</span>
+                <span class="stat-label">Всего ответов</span>
+            </div>
+            <div class="stat-card stat-yes">
+                <span class="stat-value" id="stat-attending">0</span>
+                <span class="stat-label">Придут</span>
+            </div>
+            <div class="stat-card stat-no">
+                <span class="stat-value" id="stat-not-attending">0</span>
+                <span class="stat-label">Не придут</span>
+            </div>
+        </section>
+
+        <section class="table-section">
+            <div class="table-header">
+                <h2>Список гостей</h2>
+                <button type="button" class="btn-refresh" id="btn-refresh">Обновить</button>
+            </div>
+            <div class="table-wrapper">
+                <table class="guests-table">
+                    <thead>
+                        <tr>
+                            <th>№</th>
+                            <th>Имя</th>
+                            <th>Присутствие</th>
+                            <th>Комментарий</th>
+                            <th>Дата ответа</th>
+                        </tr>
+                    </thead>
+                    <tbody id="guests-tbody">
+                        <tr>
+                            <td colspan="5" class="loading">Загрузка...</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <p class="admin-note">Данные загружаются с бэкенда (GET /api/guests)</p>
+    </div>
+    <script src="/js/admin.js"></script>
+</body>
+</html>

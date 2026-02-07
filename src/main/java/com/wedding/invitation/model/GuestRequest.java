@@ -17,8 +17,6 @@ public class GuestRequest {
     @NotNull(message = "Attending status is required")
     private Boolean attending;
 
-    private String foodPreference;
-
     private String comment;
 }
 

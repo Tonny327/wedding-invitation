@@ -26,8 +26,6 @@ public class Guest {
     @Column(nullable = false)
     private Boolean attending;
 
-    private String foodPreference;
-
     private String comment;
 
     @CreationTimestamp
