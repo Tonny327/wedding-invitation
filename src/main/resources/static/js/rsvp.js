@@ -2,6 +2,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Initialize animations
     initScrollAnimations();
     initDecorativeElements();
+    initCalendar();
     
     // RSVP Form handling
     const form = document.getElementById('rsvp-form');
@@ -34,7 +35,6 @@ document.addEventListener('DOMContentLoaded', function() {
         const guestData = {
             name: formData.get('name').trim(),
             attending: attendingValue === 'true',
-            foodPreference: formData.get('foodPreference') || null,
             comment: formData.get('comment').trim() || null
         };
 
@@ -147,6 +147,50 @@ document.addEventListener('DOMContentLoaded', function() {
                 section.appendChild(element);
             }
         });
+    }
+    
+    // Initialize calendar
+    function initCalendar() {
+        const calendarGrid = document.getElementById('calendar-grid');
+        if (!calendarGrid) return;
+        
+        // Wedding date: April 18, 2026
+        const weddingDate = new Date(2026, 3, 18); // Month is 0-indexed (3 = April)
+        const year = 2026;
+        const month = 3; // April (0-indexed)
+        
+        // Get first day of month and number of days
+        const firstDay = new Date(year, month, 1);
+        const lastDay = new Date(year, month + 1, 0);
+        const daysInMonth = lastDay.getDate();
+        const startingDayOfWeek = firstDay.getDay(); // 0 = Sunday, 1 = Monday, etc.
+        
+        // Adjust for Monday as first day (Russian calendar)
+        const adjustedStartDay = startingDayOfWeek === 0 ? 6 : startingDayOfWeek - 1;
+        
+        // Clear calendar
+        calendarGrid.innerHTML = '';
+        
+        // Add empty cells for days before month starts
+        for (let i = 0; i < adjustedStartDay; i++) {
+            const emptyDay = document.createElement('div');
+            emptyDay.className = 'calendar-day empty';
+            calendarGrid.appendChild(emptyDay);
+        }
+        
+        // Add days of the month
+        for (let day = 1; day <= daysInMonth; day++) {
+            const dayElement = document.createElement('div');
+            dayElement.className = 'calendar-day';
+            dayElement.textContent = day;
+            
+            // Highlight wedding date
+            if (day === 18) {
+                dayElement.classList.add('wedding-date');
+            }
+            
+            calendarGrid.appendChild(dayElement);
+        }
     }
 });
 
