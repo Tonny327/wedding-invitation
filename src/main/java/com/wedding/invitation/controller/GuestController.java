@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.UUID;
 
 @RestController
 @RequestMapping("/api/guests")
@@ -39,6 +40,15 @@ public class GuestController {
 
         Guest savedGuest = guestRepository.save(guest);
         return ResponseEntity.status(HttpStatus.CREATED).body(savedGuest);
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deleteGuest(@PathVariable UUID id) {
+        if (!guestRepository.existsById(id)) {
+            return ResponseEntity.notFound().build();
+        }
+        guestRepository.deleteById(id);
+        return ResponseEntity.noContent().build();
     }
 
     @ExceptionHandler(MethodArgumentNotValidException.class)

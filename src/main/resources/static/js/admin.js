@@ -19,7 +19,7 @@
 
     function renderTable(guests) {
         if (!guests || guests.length === 0) {
-            tbody.innerHTML = '<tr><td colspan="5" class="loading">Нет данных</td></tr>';
+            tbody.innerHTML = '<tr><td colspan="6" class="loading">Нет данных</td></tr>';
             return;
         }
 
@@ -29,6 +29,7 @@
             const badgeText = attending ? 'Придёт' : 'Не придёт';
             const comment = guest.comment ? guest.comment.trim() : '—';
             const date = formatDate(guest.createdAt);
+            const id = guest.id;
 
             return (
                 '<tr>' +
@@ -37,9 +38,32 @@
                 '<td><span class="' + badgeClass + '">' + badgeText + '</span></td>' +
                 '<td class="comment-cell">' + escapeHtml(comment) + '</td>' +
                 '<td class="date-cell">' + date + '</td>' +
+                '<td class="actions-cell"><button type="button" class="btn-delete" data-id="' + id + '" title="Удалить">Удалить</button></td>' +
                 '</tr>'
             );
         }).join('');
+
+        tbody.querySelectorAll('.btn-delete').forEach(function (btn) {
+            btn.addEventListener('click', function () {
+                var guestId = this.getAttribute('data-id');
+                if (guestId && confirm('Удалить гостя из списка?')) {
+                    deleteGuest(guestId);
+                }
+            });
+        });
+    }
+
+    function deleteGuest(id) {
+        fetch('/api/guests/' + encodeURIComponent(id), {
+            method: 'DELETE'
+        })
+            .then(function (response) {
+                if (!response.ok) throw new Error('Ошибка удаления');
+                loadGuests();
+            })
+            .catch(function () {
+                alert('Не удалось удалить гостя. Попробуйте ещё раз.');
+            });
     }
 
     function escapeHtml(text) {
@@ -61,7 +85,7 @@
 
     function setLoading(loading) {
         if (loading) {
-            tbody.innerHTML = '<tr><td colspan="5" class="loading">Загрузка...</td></tr>';
+            tbody.innerHTML = '<tr><td colspan="6" class="loading">Загрузка...</td></tr>';
         }
     }
 
@@ -78,7 +102,7 @@
                 renderTable(data);
             })
             .catch(function () {
-                tbody.innerHTML = '<tr><td colspan="5" class="loading">Не удалось загрузить данные. Проверьте, что бэкенд запущен.</td></tr>';
+                tbody.innerHTML = '<tr><td colspan="6" class="loading">Не удалось загрузить данные. Проверьте, что бэкенд запущен.</td></tr>';
                 updateStats([]);
             });
     }

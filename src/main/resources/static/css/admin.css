@@ -181,6 +181,26 @@ body {
     font-size: 0.85rem;
 }
 
+.guests-table .actions-cell {
+    white-space: nowrap;
+}
+
+.btn-delete {
+    padding: 0.35rem 0.75rem;
+    font-size: 0.85rem;
+    color: #c62828;
+    background: rgba(198, 40, 40, 0.1);
+    border: 1px solid #c62828;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+}
+
+.btn-delete:hover {
+    background: #c62828;
+    color: #fff;
+}
+
 .admin-note {
     margin-top: 1.5rem;
     font-size: 0.8rem;
