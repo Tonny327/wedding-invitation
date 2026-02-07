@@ -9,5 +9,4 @@ class WeddingInvitationApplicationTests {
 	@Test
 	void contextLoads() {
 	}
-
 }
