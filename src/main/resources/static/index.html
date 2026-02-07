@@ -3,35 +3,104 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Свадебное приглашение</title>
+    <title>Свадебное приглашение - Дарья и Антон</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>Мы ждем вас на нашей свадьбе!</h1>
-            <p class="subtitle">Пожалуйста, подтвердите свое присутствие</p>
-        </header>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content animate">
+            <h1 class="hero-names">
+                <span class="name">ДАРЬЯ</span>
+                <span class="name">АНТОН</span>
+            </h1>
+            <div class="hero-date">18.04.2026</div>
+        </div>
+        <div class="scroll-indicator">
+            <span>Прокрутите вниз</span>
+        </div>
+    </section>
 
-        <main>
+    <!-- Photo Section -->
+    <section class="photo-section animate">
+        <div class="photo-section-image-container">
+            <img src="/images/our_photo.jpg" alt="Дарья и Антон" class="photo-section-image">
+        </div>
+        <div class="photo-section-overlay"></div>
+    </section>
+
+    <!-- Invitation Text Section -->
+    <section class="invitation-text-section">
+        <div class="invitation-card animate">
+            <p>Дорогие гости!</p>
+            <p>Этот день откроет новую главу нашей жизни и мы хотим, чтобы вы разделили эти эмоции вместе с нами.</p>
+            <p>Приглашаем вас на нашу свадьбу</p>
+        </div>
+    </section>
+
+    <!-- Wedding Details Section -->
+    <section class="wedding-details-section animate">
+        <div class="wedding-details-background">
+            <img src="/images/location.webp" alt="Локация свадьбы" class="wedding-details-image">
+        </div>
+        <div class="wedding-details-overlay"></div>
+        <div class="wedding-details-content">
+            <div class="wedding-details-item animate animate-delay-1">
+                <div class="wedding-details-label">Дата</div>
+                <div class="wedding-details-value">18.04.2026</div>
+            </div>
+            <div class="wedding-details-item animate animate-delay-2">
+                <div class="wedding-details-label">Время</div>
+                <div class="wedding-details-value">15:00 - Сбор гостей<br>15:30 - Церемония<br>16:30 - Банкет</div>
+            </div>
+            <div class="wedding-details-item animate animate-delay-3">
+                <div class="wedding-details-label">Локация</div>
+                <div class="wedding-details-value location-name">Банкетный зал M Hall</div>
+                <div class="wedding-details-value location-address">г. Минск, улица Мясникова, 37</div>
+                <a href="https://yandex.ru/maps/?pt=27.5569,53.9045&z=17&l=map" target="_blank" rel="noopener noreferrer" class="map-button">показать на карте</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dress Code Section -->
+    <section class="dress-code animate">
+        <h2 class="section-title">ДРЕСС-КОД</h2>
+        <div class="dress-code-content">
+            <p>Будем благодарны, если вы поддержите нас вашими улыбками и объятиями, а также красивыми нарядами в палитре нашего торжества.</p>
+        </div>
+    </section>
+
+    <!-- RSVP Form Section -->
+    <section class="rsvp-section animate">
+        <div class="rsvp-container">
+            <h2 class="section-title">АНКЕТА ГОСТЯ</h2>
+            <div class="rsvp-intro">
+                <p>Ваши ответы на вопросы очень помогут нам при организации свадьбы.</p>
+                <p>Просим подтвердить свое присутствие не позднее 1 апреля 2026.</p>
+            </div>
+
             <div id="rsvp-form-container">
                 <form id="rsvp-form">
                     <div class="form-group">
-                        <label for="name">Ваше имя <span class="required">*</span></label>
+                        <label for="name">Имя, фамилия <span class="required">*</span></label>
+                        <p class="form-hint">Если вы будете с парой или семьей, то внесите имена, так же возраст детей</p>
                         <input type="text" id="name" name="name" required>
                         <span class="error-message" id="name-error"></span>
                     </div>
 
                     <div class="form-group">
-                        <label>Вы будете присутствовать? <span class="required">*</span></label>
+                        <label>Присутствие <span class="required">*</span></label>
                         <div class="radio-group">
                             <label class="radio-label">
                                 <input type="radio" name="attending" value="true" required>
-                                <span>Да, буду</span>
+                                <span>Я приду</span>
                             </label>
                             <label class="radio-label">
                                 <input type="radio" name="attending" value="false" required>
-                                <span>К сожалению, не смогу</span>
+                                <span>Прийти не получится</span>
                             </label>
                         </div>
                         <span class="error-message" id="attending-error"></span>
@@ -61,13 +130,22 @@
 
             <div id="success-message" class="success-message hidden">
                 <div class="success-icon">✓</div>
-                <h2>Спасибо за ваш ответ!</h2>
-                <p>Мы получили ваше подтверждение и очень ждем встречи с вами!</p>
+                <h3>Спасибо!</h3>
+                <p>Ваш ответ сохранен. Мы очень ждем встречи с вами!</p>
             </div>
-        </main>
-    </div>
+        </div>
+    </section>
+
+    <!-- Final Screen Section -->
+    <section class="final-screen animate">
+        <div class="final-screen-content">
+            <h2>До встречи!</h2>
+            <p>Мы с нетерпением ждем этого особенного дня и надеемся разделить его с вами.</p>
+            <p>Ваше присутствие сделает нашу свадьбу еще более незабываемой.</p>
+            <p>С любовью,<br>Дарья и Антон</p>
+        </div>
+    </section>
 
     <script src="/js/rsvp.js"></script>
 </body>
 </html>
-
