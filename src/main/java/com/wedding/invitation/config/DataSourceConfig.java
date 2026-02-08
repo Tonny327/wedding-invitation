@@ -21,6 +21,11 @@ public class DataSourceConfig {
     @Primary
     @ConditionalOnProperty(name = "DATABASE_URL", matchIfMissing = false)
     public DataSource dataSourceFromUrl(@Value("${DATABASE_URL}") String databaseUrl) {
+        if (databaseUrl == null || databaseUrl.isBlank()) {
+            throw new IllegalStateException(
+                "DATABASE_URL is empty. On Render: Web Service → Environment → add DATABASE_URL with Internal Database URL from your Postgres (Connect tab)."
+            );
+        }
         URI uri = URI.create(databaseUrl.replace("postgres://", "postgresql://"));
         String[] userInfo = uri.getUserInfo() != null ? uri.getUserInfo().split(":", 2) : new String[]{"", ""};
         String username = userInfo.length > 0 ? userInfo[0] : "";
