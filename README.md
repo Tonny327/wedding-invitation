@@ -31,14 +31,22 @@
    - **Runtime:** **Docker** (Render возьмёт Dockerfile из корня репо).  
    - **Instance Type:** Free.
 
-3. **Обязательно: добавить DATABASE_URL**  
-   Перед первым деплоем (или сразу после создания сервиса):  
-   - Откройте вашу базу **wedding-db** → вкладка **Connect**.  
-   - Скопируйте **Internal Database URL** (не External).  
-   - В Web Service **wedding-invitation** откройте **Environment** → **Add Environment Variable**.  
-   - **Key:** `DATABASE_URL`  
-   - **Value:** вставьте скопированный Internal Database URL.  
-   - Сохраните (**Save Changes**).
+3. **Обязательно: задать подключение к БД** (один из двух способов).
+
+   **Способ A — одна переменная (рекомендуется)**  
+   - База **wedding-db** → вкладка **Connect** → скопируйте **Internal Database URL**.  
+   - Web Service → **Environment** → **Add Environment Variable**:  
+     - **Key:** `DATABASE_URL`  
+     - **Value:** вставьте скопированный URL.  
+
+   **Способ B — три переменные (Spring Boot)**  
+   - В **Connect** возьмите **External Database URL** или разберите хост/порт/имя БД/пользователя/пароль.  
+   - В **Environment** добавьте:  
+     - `SPRING_DATASOURCE_URL` = `jdbc:postgresql://хост:5432/имя_бд` (из URL)  
+     - `SPRING_DATASOURCE_USERNAME` = пользователь  
+     - `SPRING_DATASOURCE_PASSWORD` = пароль  
+
+   Сохраните (**Save Changes**).
 
 4. **Создать сервис / задеплоить**  
    Нажмите **Create Web Service** (или дождитесь автоматического деплоя). Render соберёт образ по Dockerfile и запустит приложение. После успешного деплоя приложение будет доступно по адресу вида `https://wedding-invitation-xxxx.onrender.com`.
