@@ -110,10 +110,11 @@ h1, h2, h3 {
 }
 
 .section-title {
-    font-size: 2rem;
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
     text-align: center;
     margin-bottom: 2.5rem;
-    letter-spacing: 3px;
+    letter-spacing: 4px;
     font-weight: 300;
     color: var(--text-warm-dark);
     text-shadow: 0 2px 10px rgba(255, 255, 255, 0.5);
@@ -345,6 +346,10 @@ h1, h2, h3 {
     color: var(--text-warm-dark);
 }
 
+.invitation-card .section-title {
+    margin-bottom: 2rem;
+}
+
 .invitation-card p {
     font-size: 1.1rem;
     line-height: 2;
@@ -453,16 +458,7 @@ h1, h2, h3 {
     padding: 3rem 2rem;
 }
 
-.program-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 2.5rem;
-    font-weight: 300;
-    text-align: center;
-    color: var(--text-warm-dark);
-    letter-spacing: 4px;
-    margin-bottom: 2.5rem;
-    text-shadow: 0 2px 10px rgba(255, 255, 255, 0.5);
-}
+/* Program title now uses .section-title */
 
 .program-timeline {
     position: relative;
@@ -601,16 +597,7 @@ h1, h2, h3 {
     padding: 3rem 2.5rem;
 }
 
-.details-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 3rem;
-    font-weight: 300;
-    text-align: center;
-    color: var(--text-warm-dark);
-    letter-spacing: 4px;
-    margin-bottom: 1.5rem;
-    text-shadow: 0 2px 10px rgba(255, 255, 255, 0.5);
-}
+/* Details title now uses .section-title */
 
 .details-intro {
     font-size: 1.1rem;
@@ -968,6 +955,157 @@ h1, h2, h3 {
     opacity: 0.9;
 }
 
+/* Childhood Photos Section */
+.childhood-section {
+    position: relative;
+    padding: 4rem 2rem;
+    background: transparent;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.childhood-container {
+    background: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: var(--shadow-warm);
+    padding: 3rem 2.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Childhood title now uses .section-title */
+
+.childhood-text {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--text-warm-dark);
+    opacity: 0.9;
+    text-align: center;
+}
+
+.childhood-text p {
+    margin-bottom: 0.5rem;
+}
+
+.childhood-photos-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 3rem;
+    max-width: 900px;
+    width: 100%;
+    flex-wrap: wrap;
+    margin-bottom: 3rem;
+}
+
+.childhood-couple-name {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 3rem;
+    flex-wrap: wrap;
+}
+
+.couple-name-text {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    font-weight: 400;
+    color: var(--text-warm-dark);
+    font-style: italic;
+    letter-spacing: 2px;
+    text-shadow: 0 2px 10px rgba(255, 255, 255, 0.8);
+}
+
+.equals-sign {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    font-weight: 300;
+    color: var(--text-warm-dark);
+    opacity: 0.8;
+}
+
+.heart-emoji {
+    font-size: 2.5rem;
+    display: inline-block;
+    animation: heartbeat 1.5s ease-in-out infinite;
+}
+
+@keyframes heartbeat {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+}
+
+.childhood-intro {
+    position: relative;
+    text-align: center;
+    width: 100%;
+    margin-top: 2rem;
+}
+
+.childhood-photo-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.polaroid-frame {
+    background: var(--bg-white);
+    padding: 1rem 1rem 3rem 1rem;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3), 0 2px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 2px;
+    transform: rotate(-2deg);
+    transition: transform 0.3s var(--ease);
+    max-width: 280px;
+    width: 100%;
+}
+
+.childhood-photo-wrapper:nth-child(even) .polaroid-frame {
+    transform: rotate(2deg);
+}
+
+.polaroid-frame:hover {
+    transform: rotate(0deg) scale(1.05);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4), 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.childhood-photo-wrapper:nth-child(even) .polaroid-frame:hover {
+    transform: rotate(0deg) scale(1.05);
+}
+
+.childhood-photo {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 1px;
+    object-fit: cover;
+    aspect-ratio: 3 / 4;
+}
+
+.childhood-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: var(--text-warm-dark);
+    text-align: center;
+    font-style: italic;
+    letter-spacing: 1px;
+    text-shadow: 0 2px 8px rgba(255, 255, 255, 0.8);
+    margin-top: 0.5rem;
+}
+
 /* Dress Code Section */
 .dress-code {
     padding: 5rem 2rem;
@@ -1252,40 +1390,62 @@ textarea {
 /* Final Photo Section */
 .final-photo-section {
     position: relative;
-    min-height: 100vh;
-    width: 100%;
-    overflow: hidden;
+    padding: 5rem 2rem;
+    background: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 80vh;
 }
 
-.final-photo-image-container {
-    position: absolute;
-    top: 0;
-    left: 0;
+.final-photo-container {
+    max-width: 900px;
     width: 100%;
-    height: 100%;
-    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.final-photo-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.final-polaroid {
+    max-width: 700px;
+    width: 100%;
+    transform: rotate(-1deg);
+    transition: transform 0.3s var(--ease);
+    padding: 1.5rem 1.5rem 4rem 1.5rem !important;
+    max-width: 700px !important;
+}
+
+.final-polaroid:hover {
+    transform: rotate(0deg) scale(1.02);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4), 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
 .final-photo-image {
     width: 100%;
-    height: 100%;
+    height: auto;
+    display: block;
+    border-radius: 1px;
     object-fit: cover;
-    object-position: center;
+    aspect-ratio: 4 / 3;
+    min-height: 300px;
 }
 
-.final-photo-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(
-        to bottom,
-        rgba(245, 230, 211, 0.2) 0%,
-        rgba(232, 213, 183, 0.3) 50%,
-        rgba(212, 165, 116, 0.4) 100%
-    );
-    z-index: 2;
+@media (max-width: 768px) {
+    .final-photo-image {
+        min-height: 400px;
+    }
+}
+
+@media (max-width: 480px) {
+    .final-photo-image {
+        min-height: 350px;
+    }
 }
 
 .final-screen {
@@ -1416,10 +1576,7 @@ html {
         padding: 2rem 1.5rem;
     }
 
-    .program-title {
-        font-size: 2rem;
-        letter-spacing: 2px;
-    }
+    /* Program title now uses .section-title */
 
     .program-timeline::before {
         left: 30px;
@@ -1462,10 +1619,7 @@ html {
         padding: 2rem 1.5rem;
     }
 
-    .details-title {
-        font-size: 2.2rem;
-        letter-spacing: 2px;
-    }
+    /* Details title now uses .section-title */
 
     .location-section .section-title {
         font-size: 2.2rem;
@@ -1484,9 +1638,7 @@ html {
         min-height: 80vh;
     }
 
-    .final-photo-section {
-        min-height: 80vh;
-    }
+    /* Final photo section styles updated above */
 
     .invitation-text-section {
         min-height: 50vh;
@@ -1552,6 +1704,54 @@ html {
         font-size: 1rem;
     }
 
+    .childhood-section {
+        padding: 3rem 1.5rem;
+    }
+
+    .childhood-container {
+        padding: 2rem 1.5rem;
+    }
+
+    /* Childhood title now uses .section-title */
+
+    .childhood-text {
+        font-size: 1rem;
+        line-height: 1.8;
+    }
+
+    .childhood-photos-container {
+        gap: 2rem;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 2rem;
+    }
+
+    .polaroid-frame {
+        max-width: 240px;
+        padding: 0.8rem 0.8rem 2.5rem 0.8rem;
+    }
+
+    .childhood-name {
+        font-size: 1.3rem;
+    }
+
+    .childhood-couple-name {
+        margin-bottom: 2rem;
+        gap: 0.8rem;
+    }
+
+    .couple-name-text {
+        font-size: 2rem;
+    }
+
+    .equals-sign {
+        font-size: 1.5rem;
+    }
+
+    .heart-emoji {
+        font-size: 2rem;
+    }
+
     .dress-code {
         padding: 3rem 1.5rem;
         min-height: 40vh;
@@ -1562,8 +1762,25 @@ html {
     }
 
     .section-title {
-        font-size: 1.5rem;
+        font-size: 1.8rem;
+        letter-spacing: 2px;
         margin-bottom: 2rem;
+    }
+    
+    .final-photo-section {
+        padding: 3rem 1.5rem;
+        min-height: auto;
+    }
+    
+    .final-photo-container {
+        width: 100%;
+        max-width: 100%;
+    }
+    
+    .final-polaroid {
+        max-width: 100% !important;
+        width: calc(100% - 1rem) !important;
+        padding: 1.2rem 1.2rem 3.5rem 1.2rem !important;
     }
 
     .timeline-content {
@@ -1648,7 +1865,25 @@ html {
     }
 
     .section-title {
-        font-size: 1.3rem;
+        font-size: 1.5rem;
+        letter-spacing: 2px;
+    }
+    
+    .final-photo-section {
+        padding: 2rem 1rem;
+    }
+    
+    .final-photo-container {
+        width: 100%;
+        max-width: 100%;
+        padding: 0;
+    }
+    
+    .final-polaroid {
+        max-width: 100% !important;
+        width: calc(100% - 0.5rem) !important;
+        padding: 1rem 1rem 3rem 1rem !important;
+        margin: 0 auto;
     }
 
     .location-section .section-title {
@@ -1680,6 +1915,40 @@ html {
 
     .dress-code {
         padding: 2.5rem 1rem;
+    }
+
+    .childhood-section {
+        padding: 2.5rem 1rem;
+    }
+
+    .childhood-container {
+        padding: 1.5rem 1rem;
+    }
+
+    /* Childhood title now uses .section-title */
+
+    .childhood-text {
+        font-size: 0.95rem;
+    }
+
+    .polaroid-frame {
+        max-width: 200px;
+    }
+
+    .childhood-name {
+        font-size: 1.2rem;
+    }
+
+    .couple-name-text {
+        font-size: 1.5rem;
+    }
+
+    .equals-sign {
+        font-size: 1.2rem;
+    }
+
+    .heart-emoji {
+        font-size: 1.5rem;
     }
 
     .dress-code-content p {
