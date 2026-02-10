@@ -3,6 +3,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initScrollAnimations();
     initDecorativeElements();
     initCalendar();
+    initFinalPhotoToggle();
     
     // RSVP Form handling
     const form = document.getElementById('rsvp-form');
@@ -191,6 +192,16 @@ document.addEventListener('DOMContentLoaded', function() {
             
             calendarGrid.appendChild(dayElement);
         }
+    }
+
+    // Toggle final photo on tap/click (mobile-friendly)
+    function initFinalPhotoToggle() {
+        const finalPolaroid = document.querySelector('.final-polaroid');
+        if (!finalPolaroid) return;
+
+        finalPolaroid.addEventListener('click', () => {
+            finalPolaroid.classList.toggle('expanded');
+        });
     }
 });
 

@@ -1807,6 +1807,27 @@ html {
         padding: 0.8rem 0.8rem 2.5rem 0.8rem;
     }
 
+    /* Final photo: slightly smaller, tilted polaroid on mobile */
+    .polaroid-frame.final-polaroid {
+        width: 92% !important;
+        max-width: 500px !important;
+        min-width: 0 !important;
+        flex: none !important;
+        padding: 1rem 1rem 2.5rem 1rem !important;
+        transform: rotate(-2deg);
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3), 0 2px 8px rgba(0, 0, 0, 0.2);
+        border-radius: 2px;
+        background: var(--bg-white);
+        margin: 0 auto;
+        transition: transform 0.3s var(--ease);
+    }
+
+    /* Toggled (expanded) state for final photo on mobile */
+    .polaroid-frame.final-polaroid.expanded {
+        transform: rotate(-2deg) scale(1.05);
+        box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4), 0 4px 12px rgba(0, 0, 0, 0.3);
+    }
+
     .childhood-name {
         font-size: 1.7rem;
     }
@@ -1844,19 +1865,29 @@ html {
     }
     
     .final-photo-section {
-        padding: 3rem 1.5rem;
+        padding: 0;
         min-height: auto;
     }
     
-    .final-photo-container {
+    .final-photo-container,
+    .final-photo-wrapper {
         width: 100%;
-        max-width: 100%;
+        max-width: none;
+        margin: 0;
+        padding: 0;
     }
     
     .final-polaroid {
-        max-width: 100% !important;
-        width: calc(100% - 1rem) !important;
-        padding: 1.2rem 1.2rem 3.5rem 1.2rem !important;
+        width: 100% !important;
+        max-width: none !important;
+        margin: 0;
+    }
+
+    .final-photo-image {
+        width: 100%;
+        height: auto;
+        aspect-ratio: auto;
+        min-height: unset;
     }
 
     .timeline-content {
@@ -1946,20 +1977,27 @@ html {
     }
     
     .final-photo-section {
-        padding: 2rem 1rem;
+        padding: 0;
     }
     
     .final-photo-container {
         width: 100%;
-        max-width: 100%;
+        max-width: none;
         padding: 0;
+        margin: 0;
     }
     
     .final-polaroid {
-        max-width: 100% !important;
-        width: calc(100% - 0.5rem) !important;
-        padding: 1rem 1rem 3rem 1rem !important;
-        margin: 0 auto;
+        width: 100% !important;
+        max-width: none !important;
+        margin: 0;
+    }
+
+    .final-photo-image {
+        width: 100%;
+        height: auto;
+        aspect-ratio: auto;
+        min-height: unset;
     }
 
     .location-section .section-title {
@@ -2072,6 +2110,27 @@ html {
         min-width: 180px !important;
         flex: 0 0 180px !important;
         padding: 0.7rem 0.7rem 2.2rem 0.7rem;
+    }
+
+    /* Final photo: slightly smaller, tilted polaroid on very small screens */
+    .polaroid-frame.final-polaroid {
+        width: 92% !important;
+        max-width: 450px !important;
+        min-width: 0 !important;
+        flex: none !important;
+        padding: 1rem 1rem 2.5rem 1rem !important;
+        transform: rotate(-2deg);
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3), 0 2px 8px rgba(0, 0, 0, 0.2);
+        border-radius: 2px;
+        background: var(--bg-white);
+        margin: 0 auto;
+        transition: transform 0.3s var(--ease);
+    }
+
+    /* Toggled (expanded) state for final photo on very small screens */
+    .polaroid-frame.final-polaroid.expanded {
+        transform: rotate(-2deg) scale(1.05);
+        box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4), 0 4px 12px rgba(0, 0, 0, 0.3);
     }
 
     .childhood-name {
