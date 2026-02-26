@@ -2213,3 +2213,10 @@ html {
         max-width: 960px;
     }
 }
+
+/* iOS Safari fix: disable fixed background attachment (parallax breaks background image) */
+@supports (-webkit-touch-callout: none) {
+    body {
+        background-attachment: scroll;
+    }
+}
