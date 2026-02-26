@@ -2220,10 +2220,10 @@ html {
         background-color: var(--bg-golden);
         background-image: url('/images/background.jpg');
         /* On iPhone: показываем фон целиком без сильного зума */
-        background-size: contain;
-        -webkit-background-size: contain;
-        background-position: top center;
-        background-repeat: no-repeat;
+        background-size: 50% auto;
+        -webkit-background-size: 50% auto;
+        background-position: center top;
+        background-repeat: repeat-y;
         background-attachment: scroll;
         min-height: 100%;
     }
