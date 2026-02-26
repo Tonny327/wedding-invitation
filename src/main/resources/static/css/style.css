@@ -2214,9 +2214,24 @@ html {
     }
 }
 
-/* iOS Safari fix: disable fixed background attachment (parallax breaks background image) */
+/* iOS Safari fix: background on html + scroll + absolute overlay so background.jpg paints */
 @supports (-webkit-touch-callout: none) {
+    html {
+        background-color: var(--bg-golden);
+        background-image: url('/images/background.jpg');
+        background-size: cover;
+        -webkit-background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-attachment: scroll;
+        min-height: 100%;
+    }
     body {
         background-attachment: scroll;
+        min-height: 100vh;
+    }
+    body::before {
+        position: absolute;
+        min-height: 100vh;
     }
 }
