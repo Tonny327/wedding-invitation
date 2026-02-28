@@ -1,0 +1,21 @@
+# Keep Render.com service awake on free tier
+# Free tier services "sleep" after 15 min of inactivity; this workflow pings the site every 14 min.
+
+name: Keep Render Alive
+
+on:
+  # Запуск каждые 14 минут по расписанию
+  schedule:
+    - cron: '*/14 * * * *'
+
+  # Ручной запуск из интерфейса GitHub (Actions -> Keep Render Alive -> Run workflow)
+  workflow_dispatch:
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Ping Render site
+        run: |
+          curl -s https://wedding-invitation-56sh.onrender.com > /dev/null
