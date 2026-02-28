@@ -4,9 +4,9 @@
 name: Keep Render Alive
 
 on:
-  # Запуск каждые 14 минут по расписанию
+  # Запуск каждые 10 минут по расписанию
   schedule:
-    - cron: '*/14 * * * *'
+    - cron: '*/10 * * * *'
 
   # Ручной запуск из интерфейса GitHub (Actions -> Keep Render Alive -> Run workflow)
   workflow_dispatch:
